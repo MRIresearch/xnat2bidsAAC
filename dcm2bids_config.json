@@ -1,0 +1,49 @@
+{
+    "descriptions": [
+        {
+        "dataType": "func",
+        "modalityLabel": "bold",
+        "customLabels": "task-rest",
+        "criteria": {
+            "SeriesDescription": "RS-FMRI-MB*"
+            }
+        },
+        {
+        "dataType": "anat",
+        "modalityLabel": "T1w",
+        "criteria": {
+            "SeriesDescription": "T1-MPRAGE"
+            }
+        },
+        {
+        "dataType": "anat",
+        "modalityLabel": "T1w",
+        "customLabels": "acq-distcorr",
+        "criteria": {
+            "SeriesDescription": "T1-MPRAGE_ND"
+            }
+        },
+		{
+        "dataType": "anat",
+        "modalityLabel": "T2w",
+        "criteria": {
+            "SeriesDescription": "pd+t2_tse_tra_3mm"
+            }
+        }
+		"dataType": "asl",
+        "modalityLabel": "asl",
+        "criteria": {
+            "SeriesDescription": "3D-ASL"
+            }
+        }
+		{
+		"dataType": "asl",
+        "modalityLabel": "asl",
+		"customLabels": "acq-perfusion",
+        "criteria": {
+            "SeriesDescription": "3D-ASL"
+            }
+        }
+		
+    ]
+}
