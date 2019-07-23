@@ -4,6 +4,8 @@ Docker container for converting xnat session data to bids format
 # Build Docker Image
 Navigate to an empty folder on your system
 
+`cd xnat2bidsAAC`
+
 `git clone https://github.com/MRIresearch/xnat2bidsAAC.git`
  
 `docker build -t orbisys/dcm2bids-session:1.0`
