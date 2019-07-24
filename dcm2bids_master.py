@@ -392,7 +392,7 @@ if hasBidsDir:
         queryArgs = {}
         if workflowId is not None:
             queryArgs["event_id"] = workflowId
-        r = sess.delete(host + "/data/experiments/%s/resources/BIDS" % (session), params=queryArgs)
+        r = sess.delete(host + "/data/experiments/%s/resources/BIDS-ORBISYS" % (session), params=queryArgs)
         r.raise_for_status()
     except (requests.ConnectionError, requests.exceptions.RequestException) as e:
         print "There was a problem deleting"
@@ -401,18 +401,18 @@ if hasBidsDir:
 # Uploading
 print 'Uploading files for session %s' % session
 
-queryArgs = {"format": "BIDS", "content": "BIDS_FILES", "tags": "BIDS"}
+queryArgs = {"format": "BIDS_NIFTI", "content": "BIDS_FILES", "tags": "BIDS"}
 if workflowId is not None:
     queryArgs["event_id"] = workflowId
 if uploadByRef:
     queryArgs["reference"] = os.path.abspath(sessionBidsDir)
-    r = sess.put(host + "/data/experiments/%s/resources/BIDS/files" % (session), params=queryArgs)
+    r = sess.put(host + "/data/experiments/%s/resources/BIDS-ORBISYS/files" % (session), params=queryArgs)
 else:
     queryArgs["extract"] = True
     (t, tempFilePath) = tempfile.mkstemp(suffix='.zip')
     zipdir(dirPath=os.path.abspath(sessionBidsDir), zipFilePath=tempFilePath, includeDirInZip=False)
     files = {'file': open(tempFilePath, 'rb')}
-    r = sess.put(host + "/data/experiments/%s/resources/BIDS/files" % (session), params=queryArgs, files=files)
+    r = sess.put(host + "/data/experiments/%s/resources/BIDS-ORBISYS/files" % (session), params=queryArgs, files=files)
     os.remove(tempFilePath)
 r.raise_for_status()
 
