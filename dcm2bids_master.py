@@ -88,7 +88,7 @@ parser.add_argument("--user", help="CNDA username", required=True)
 parser.add_argument("--password", help="Password", required=True)
 parser.add_argument("--session", help="Session ID", required=True)
 parser.add_argument("--subject", help="Subject Label", required=False)
-parser.add_argument("--session_label", help="session Label", required=False)
+parser.add_argument("--session_label", help="session Label",  nargs='?', required=False)
 parser.add_argument("--project", help="Project", required=False)
 parser.add_argument("--dicomdir", help="Root output directory for DICOM files", required=True)
 parser.add_argument("--niftidir", help="Root output directory for NIFTI files", required=True)
@@ -158,6 +158,7 @@ if project is None or subject is None:
         subject = r.json()["ResultSet"]["Result"][0]["label"]
         print "Subject label: " + subject
 
+session_label_all = session_label
 if session_label is None:
 	# get session label
 	r = get(host + "/data/experiments/%s" % session, params={"format": "json", "handler": "values", "columns": "label"})

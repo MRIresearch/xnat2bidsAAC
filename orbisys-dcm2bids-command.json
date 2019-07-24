@@ -5,7 +5,7 @@
   "schema-version": "1.0",
   "image": "orbisys/dcm2bids-session:1.0",
   "type": "docker",
-  "command-line": "python dcm2bids_master.py #SESSION_ID# #OVERWRITE# #SESSION_LABEL#--host $XNAT_HOST --user $XNAT_USER --pass $XNAT_PASS --upload-by-ref False --dicomdir /dicom --niftidir /nifti",
+  "command-line": "python dcm2bids_master.py #SESSION_ID# #OVERWRITE# #SESSION_LABEL# --host $XNAT_HOST --user $XNAT_USER --pass $XNAT_PASS --upload-by-ref False --dicomdir /dicom --niftidir /nifti",
   "override-entrypoint": true,
   "mounts": [
     {
@@ -36,7 +36,7 @@
       "description": "Overwrite any existing NIFTI and BIDS scan resources?",
       "type": "boolean",
       "matcher": null,
-      "default-value": "false",
+      "default-value": "true",
       "required": false,
       "replacement-key": "#OVERWRITE#",
       "sensitive": null,
