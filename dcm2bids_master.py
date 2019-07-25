@@ -381,22 +381,25 @@ rmtree(tmpBidsDir)
 # Upload results
 print
 print 'Preparing to upload files for session %s.' % session
+
+#test without deleting
+
 #Make this more flexible
-hasBidsDir = True
+#hasBidsDir = True
 # If we have a NIFTI resource and we've reached this point, we know overwrite=True.
 # We should delete the existing NIFTI resource.
-if hasBidsDir:
-    print "Session %s has a preexisting BIDSDIR resource. Deleting it now." % session
+#if hasBidsDir:
+#    print "Session %s has a preexisting BIDSDIR resource. Deleting it now." % session
 
-    try:
-        queryArgs = {}
-        if workflowId is not None:
-            queryArgs["event_id"] = workflowId
-        r = sess.delete(host + "/data/experiments/%s/resources/BIDS-ORBISYS" % (session), params=queryArgs)
-        r.raise_for_status()
-    except (requests.ConnectionError, requests.exceptions.RequestException) as e:
-        print "There was a problem deleting"
-        print "    " + str(e)
+#    try:
+#        queryArgs = {}
+#        if workflowId is not None:
+#            queryArgs["event_id"] = workflowId
+#        r = sess.delete(host + "/data/experiments/%s/resources/BIDS-ORBISYS" % (session), params=queryArgs)
+#        r.raise_for_status()
+#    except (requests.ConnectionError, requests.exceptions.RequestException) as e:
+#        print "There was a problem deleting"
+#        print "    " + str(e)
 
 # Uploading
 print 'Uploading files for session %s' % session
