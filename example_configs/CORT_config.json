@@ -185,8 +185,9 @@
         {
 		"dataType": "asl",
         "modalityLabel": "asl",
+        "customLabels": "acq-3D",
         "criteria": {
-            "SeriesDescription": "JJWANGS*"
+            "SeriesDescription": "3D-ASL"
             }
         },
         {
@@ -194,7 +195,7 @@
         "modalityLabel": "asl",
         "customLabels": "acq-jjwang",
         "criteria": {
-            "SeriesDescription": "3D-ASL"
+            "SeriesDescription": "JJWANGS*"
             }
         },
 		{
